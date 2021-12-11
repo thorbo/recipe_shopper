@@ -1,0 +1,9 @@
+.recipe img {
+    width: 100px;
+    height: 100px;
+}
+
+.recipe {
+    align-content: center;
+    width: fit-content;
+}
