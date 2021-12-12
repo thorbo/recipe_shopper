@@ -8,13 +8,13 @@ const RecipeFaceout = (props) => {
 
   return (
     <div className={classes.recipe} onClick={() => props.onClick(recipe.title)}>
-      <img src="https://www.recipetineats.com/wp-content/uploads/2021/08/Spaghetti-Puttanesca_64-SQ.jpg" />
-      <p>{recipe.title}</p>
+      <img src={recipe.image} />
+      <h3>{recipe.title}</h3>
       <ul>
         {recipe.components.map((component) => {
           let ingredient = component.ingredient
           cals += ingredient.protein + ingredient.fats + ingredient.carbs;
-          return <li>{ingredient.name}</li>;
+          return <li key={ingredient.name}>{ingredient.name}</li>;
         })}
       </ul>
       <hr />

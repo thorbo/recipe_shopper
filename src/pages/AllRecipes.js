@@ -1,16 +1,24 @@
-import { Fragment } from "react";
 import RecipeFaceout from "../components/RecipeFaceout";
 import { Recipes } from "../store/Recipes";
+import { useNavigate } from "react-router-dom";
 
 const AllRecipes = (props) => {
-    const recipeClickHandler = (name) => {
-        alert(name)
-    }
+  const navigate = useNavigate();
+
+  const recipeClickHandler = (name) => {
+    navigate(`/${name}`);
+  };
 
   return (
     <div className="recipes">
       {Recipes.map((recipe) => {
-        return <RecipeFaceout recipe={recipe} onClick={recipeClickHandler}/>;
+        return (
+          <RecipeFaceout
+            key={recipe.id}
+            recipe={recipe}
+            onClick={recipeClickHandler}
+          />
+        );
       })}
     </div>
   );
